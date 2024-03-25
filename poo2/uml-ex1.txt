@@ -1,0 +1,7 @@
+O diagrama representa um sistema de Pedidos de produto, neste sistema so seguintes comportamentos estão presentes:
+1) A classe Order representa o pedido completo, é vinculado a uma Order apenas 1 Customer e N "Order Lines".
+2) A classe Order Line representa o numero de produtos do mesmo tipo em uma Order, guarda tambem o valor total referente a estes itens de mesmo tipo em uma Order.
+3) A classe Product representa um produto, pode estar presente em N Order Lines.
+4) Customer representa um cliente, pode ter N Orders vinculadas a ele.
+5) Corporate Customer é uma especialização da classe Customer, representa um cliente pessoa juridica, com propriedades distintas do Personal Customer, pode possuir 0 ou 1 representante de venda, vinculado a uma classe do tipo Employee.
+6) Personal Customer representa um cliente pessoa fisica, também herda propriedades do Customer.

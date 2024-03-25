@@ -1,0 +1,29 @@
+Aprendizagem Indutiva:
+f(x) = h(x)
+
+- Dado uma coleção de exemplos de f(x), retorna funções h que se aproximam de f.
+- H's consistentes são h's que acertam 100% dos exemplos dados. devemos escolher o melhor H entre os consistentes...
+- "Lamina de Ockam": para escolher o melhor H entre os H's consistentes, pegamos o H mais simples.
+
+Supervisionado
+- x são entradas
+- y são saídas (verdades)
+- y com valores discretos é tarefa da Classificação
+- y com valores contínuos é tarefa da Regrassão
+
+Não Supervisionado
+- ensinado por exemplos amostrados entendendo o comportamento de x, sem qualquer informação do y.
+
+Semi Supervisionado
+- utiliza-se exemplos de f(x) com e sem informações prévias sobre o Y.
+- Y's conhecidos têm maior peso do que Y's desconhecidos.
+
+Por Reforço
+- ensinado por meio de Experiência
+- Funcao de Perda: recebe como entrada o efeito que foi causado no ambiente pela ação e calcula a distancia para o obj final.
+- cada passo do aprendizado é representado desta forma: 1)Ação 2)Observar Estado 3)Recebe recompensa/punição
+
+Arvores de Decisão: A=Atributos e D=decisões.
+        A1 (Utiliza-se ENTROPIA para escolher a ordem dos atributos, sempre pelos atributos que mais separam os casos)
+    D1      A2 
+          D2  D3

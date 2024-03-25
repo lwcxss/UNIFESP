@@ -1,0 +1,18 @@
+S.O.L.I.D.
+
+S -> Single Responsability
+  ex.:
+    PrintarSoma
+    Somar
+O -> Open-Closed
+  Sort(string, compare_func)
+L -> Liskov (Substituição ao invez da Herança)
+  Boas praticas para a Herança
+    Trocar a implementação deve ser imperceptivel.
+I -> Interface Segregation
+  ex.:
+    Funcionario
+    FuncionarioCLT
+    FuncionarioPublico
+D -> Dependency Inversion
+  Usar interfaces genericas e nao classes

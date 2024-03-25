@@ -1,0 +1,13 @@
+1) Ao usar o comando de LOCK travamos a tabela 'user', quando tentamos inserir usando a segunda seção o terminal é travado aguardando a liberação da tabela, assim que executamos o comando UNLOCK TABLES na primeira seção, a segunda seção executa o INSERT pendente.
+
+2) Quando usamos o modo de bloqueio WRITE, também travamos a leitura da tabela, a segunda seção só realiza o SELECT ao executar UNLOCK TABLES na primeira seção.
+
+3) Comandos executados pela segunda seção que não envolvem a tabela User que foi bloqueada pela primeira seção são executados normalmente, apenas o último comando que é um SELECT na tabela bloqueada ficará aguardando a liberação do recurso.
+
+4) Ao bloquear uma linha no SHARE MODE, todo comando que não altera os dados da linha travada são executados normalmente, comandos como UPDATE ou DELETE irão ficar ociosos aguardando liberação ou COMMIT vindo da transação da primeira seção.
+
+5) Na sessão 1 é criada a tabela User e em seguida é inserido dois usuários, depois é acessado o usuário com o ID = 2 para realizar um update. Na sessão 2 é realizado um user update para o usuário com o ID = 1, atualizando o nome. Depois, efetuamos o select da tabela User e tentamos dar update para o usuário com o ID = 2, porém, a query fica aguardando para ser executada, tendo em vista que o usuário com ID = 2 está bloqueado. Em seguida, após o commit na sessão 1, é possível executar os comandos no usuário com ID = 2.
+
+6) Quando a tabela é bloqueada na sessão 1 e tenta desbloquear simultaneamente na sessão 2, a query fica aguardando para ser executada. Após o commit ele continua aguardando para ser executado e somente com o unlock ele é liberado.
+
+7) A inserção é executada na sessão 1, quando é feito o bloqueio exclusivo na sessão 2 e outra inserção na sessão 1 na mesma tabela, a query aguarda até o unlock.

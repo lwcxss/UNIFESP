@@ -1,0 +1,12 @@
+1) O código quebra o princípio de Demeter, uma possível solução seria a definição do método: Biblioteca.getNumExemplares(area_conhecimento, nome_livro)
+
+2) class Tabela {
+    ...
+    void imprime(cabecalho, rodape) {...}
+  }
+
+3) Liskov, a classe CalculadoraRapida não proporciona as funcionalidades definidas da classe Calculadora.
+
+4) Há uma violação do princípio de Single Responsability, quando solicitado ao coordenador o diploma, o coordenador deve dar continuidade ao processo, ele deve enviar a mensagem ao DCC, DCC enviar ao CENEX, CENEX ao PROEX, "recursivamente", e o diploma deve voltar a você que apenas precisou solicitar uma vez ao coordenador.
+
+5) Um exemplo de Otimização Prematura pode ser o principio Open/Closed, o exemplo dado do metodo SORT é um otimo exemplo de otimização prematura, imaginemos que criamos o metodo SORT por um motivo, precisamos ordenar alfabeticamente um array de strings, provavelmente temos muito a se fazer ainda no sistema, e o foco dado em permitir que o metodo SORT possa ser extremamente customizavel apenas com parametros faz com que trabalho seja gasto para preparar uma funcao para um cenário que não necessariamente deve ser o foco no momento, considerando que SORT foi criado para solucionar apenas o problema do array de strings.
