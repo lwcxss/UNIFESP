@@ -1,0 +1,20 @@
+Elementos de um Padrão
+  Nome
+  Problema -> quando aplicar
+  Solução -> como utilizar
+  Consequências -> custo, facilidade, etc.
+
+Tipos
+  Adapter -> converter interface de uma classe em outra esperada pelo cliente.
+  Façade -> ofere interface unica mais elevado para um conjunto de interfaces de um subsistema
+  Compositie -> permitir o tratamento de objetos individuais e composições desses objetos de maneira uniforme
+  Bridge -> desacopla a abstracao para que os dois possam variar independentemente
+  ...
+
+Como selecionar um padrão?
+  1. considere como os padrões solucionam os problemas de um projeto
+  2. analise o problema e compare com o objetivo
+  3. veja se os padroes envolvidos se relacionam entre si
+  ...
+
+

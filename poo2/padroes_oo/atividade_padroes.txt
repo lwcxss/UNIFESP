@@ -1,0 +1,24 @@
+1. Descreva três benefícios da propriedade de projeto chamada ocultamento de informação (information hiding)?
+- O ocultamento de informação proporciona a abstração da funcionalidade da classe de seu codigo de implementação, isso significa que o código responsável pela classe se mantem sigiloso (por exemplo usando arquivos .o e headers .h em c++), uma outra consequência direta disso é que o programador que irá utilizar a classe não precisa se preocupar com a implementação da classe em sí, uma vez que todos os seus métodos serão nomeados baseado em sua função, formando uma espécie de caixa preta, isto é, sabemos oque entra no método, sabemos oque retorna do método, mas não precisamos nos preocupar com o COMO o método trata os dados. Isso também proporciona que outras implementações sejam injetadas no código sem precisar de qualquer alteração por parte do programador que utiliza-la.
+
+2. Suponha que um programador adote a seguinte estratégia: ao implementar qualquer nova funcionalidade ou corrigir um bug que implique na modificação de duas classes A e B localizadas em arquivos diferentes, ele conclui a tarefa movendo as classes para o mesmo arquivo. Explicando melhor: após terminar a tarefa de programação que ficou sob sua responsabilidade, ele escolhe uma das classes, digamos a classe B, e a move para o mesmo arquivo da classe A. Agindo dessa maneira, ele estará melhorando qual propriedade de projeto? Por outro lado, qual propriedade de projeto estará sendo afetada de modo negativo? Justifique.
+- Este comportamento melhora a Coesão, uma vez que classes com comportamentos parecidos estarão agrupados, todavia, isso irá gerar aumento no acoplamento, uma vez que agora a classe A terá acesso ao código fonte da classe B e vice-versa
+
+3. Classitis é o nome dado por John Ousterhout à proliferação de pequenas classes em um sistema. Segundo ele,  pode resultar em classes que individualmente são simples, mas que aumentam a complexidade total de um sistema. Usando os conceitos de acoplamento e coesão, como podemos explicar o problema causado por essa doença?
+- A criação de classes simples em excesso irá complicar a interpretação do código em si, uma vez que caso precise consultar o que um método faz, será necessario encontrar qual de suas implementações foi utilizada no momento, isso pode ser benéfico se pensarmos que caso precisemos de uma nova implementação dessa classe podemos injeta-la no lugar, porém como definido classe simples, provavelmente não ha a necessidade da implementação como uma classe, uma vez que isso fará com que tenhamos muito mais arquivos e nosso repositorio ficará menos coeso a troco de quase nenhum benefício na prática.
+
+4. Defina: (a) acoplamento aceitável; (b) acoplamento ruim; (c) acoplamento estrutural; (d) acoplamento evolutivo (ou lógico).
+- a: quando as dependências estão bem definidas, permitindo reuso e fácil manutenção.
+  b: quando possui dependencias desnecessárias, fazendo com que uma alteração necessite de adaptação nas classes subsequentes.
+  c: classes que dependem da implementação específica de outras classes, dificultando a reusabilidade do código.
+  d: classes que não se comportam como esperado pois dependem da correta ordem de utilização de métodos de outra classe, dificulta a interpretação do código bem como seus testes.
+
+5. Dê um exemplo de: (1) acoplamento estrutural e aceitável; (2) acoplamento estrutural e ruim.
+- 1) Uma classe USUARIO depende da classe REPOSITORIO para ler seus amigos.
+- 2) Uma classe MOTO depende da variável TAMANHO_CILINDRO_2_TEMPOS da classe MOTOR, não utilizando seus metodos get publicos.
+
+6. É possível que uma classe A esteja acoplada a uma classe B sem ter uma referência para B em seu código? Se sim, esse acoplamento será aceitável ou será um acoplamento ruim?
+É possível utilizando interfaces, herança, variáveis globais (embora não recomendadas), o acoplamento é aceitável caso use apenas componentes publicos da interface.
+
+7. Suponha um programa em que todo o código está implementado no método main. Ele tem um problema de coesão ou acoplamento? Justifique.
+- O acoplamento será baixíssimo, uma vez que não depende de nenhum outro arquivo, classe, etc. Todavia, a complexidade gerada por ter todo o código na mesma função completamente destrói a coesão e o principio de Single Responsability.
