@@ -1,0 +1,100 @@
+1) O que é um Sistema Operacional (SO)?
+Um conjunto de programas que operam acima do kernel, é responsável por gerenciar o hardware do computador e seus periféricos.
+
+2) Quais são as funções básicas de um SO?
+gerenciar memoria, processos, arquivos e dispositivos, além de proporcionar uma interface gráfica ao usuário e prover segurança da integridade da maquina e de seus arquivos. 
+
+3) O que acontece com o conteúdo da memória Ram quando o computador é desligado?
+c) É totalmente perdido
+d) É gravado
+Dependendo da configuração do SO, é possível salvar uma "foto" da memória em disco, para quando o computador for ligado novamente, retomar seu estado.
+
+4) Cite 3 dispositivos de entrada e 3 dispositivos de saída.
+entrada: teclado, mouse, microfone.
+saída: vídeo, áudio, impressora.
+
+5) Defina Sistema Computacional.
+É a junção do HARDWARE (parte que você chuta), SOFTWARE (parte que você xinga) e os dados.
+
+6) Quais as características dos SOs monoprogramáveis?
+São sistemas que executam um programa por vez, sem intercalar seu poder de processamento entre os processos, são bem mais simples pois não precisam lidar com concorrencia de processos e mais eficientes devido a ausencia do periodo de troca de contexto que precisa ser efetuado quando se esgota o tempo de cpu de um processo no sistemas com concorrencia. Todavia, caso o processo trave em um sistema monoprogramavel, todo o sistema irá ficar ocioso, pois ele espera até a conclusão do processo para continuar.
+
+7) O que é uma linguagem de programação?
+É a adaptação dos 0s e 1s que o computador interpreta para uma liguagem que seja mais intuitiva de ler por um programador, sua finalidade é aumentar a eficiencia do tempo levado para programar, trazendo palavras, cores, identação, etc.
+
+8) Quais as desvantagens encontradas em uma linguagem de máquina?
+Como citado na questao 7, linguagem de maquina não é tão intuitiva para um ser humano, além disso, as instruções presentes nela são de nível muito mais baixo do que liguagens como C, JAVASCRIPT, PYTHON, etc. Assim, a quantidade de linhas de código e lógica necessária para produzir um software acaba subindo exponencialmente.
+
+9) O que é multiprogramação? Cite duas razões para se ter multiprogramação?
+A multiprogramação permite que a maquina execute multiplos programas ao mesmo tempo, assim, priorizando os processos que mais demandam poder de processamento, sem tornar o sistema como um todo OCIOSO enquanto realiza as instruções dos programas. Aumentando a produtividade e continuando responsivo mesmo enquanto executa diversos programas.
+
+10) Há várias metas de projeto na construção de um sistema operacional; por exemplo,
+utilização de recursos, oportunidade, robustez etc. Dê um exemplo de duas metas de projeto
+que possam ser contraditórias.
+Concorrencia e integridade de dados, estes dois conceitos devem ser balanceados, uma vez que multiplos processos e CPUs mexendo nos mesmos 0s e 1s podem acabar atropelando uns aos outros, para este problema a solução tem o custo da implementação de procedimentos extras que servem para organizar o problema do CAOS criado pelos multiplos processos paralelos, como dizem os desenvolvedores mais experientes: 
+"Fui resolver este problema com multithread, agora problemas 2. tenho"
+
+11) Qual a finalidade de uma chamada de sistema em um sistema operacional?
+Realizar funcionalidades do nível do Kernel, como abrir e fechar arquivos, criar e matar processos, solicitar o estado de um dispositivo, etc...
+
+12) Considere um sistema de computador que tem memória cache, memória principal (RAM) e
+disco. O sistema operacional usa memória virtual. São necessários 2ns para acessar uma
+palavra a partir da cache, 10ns para acessar uma palavra a partir da RAM e 10ms para
+acessar uma palavra a partir do disco. Se a taxa de acerto da cache é de 95% e a da memória
+principal (após uma falta de cache) é de 99%, qual é o tempo médio de acesso a uma
+palavra?
+cache:  2ns * .95       = 1.900ns  | 
+ram:   10ns * .05 * .99 = 0.495ns  |--> TOTAL: 2.3955ns
+disco: 10ms * .05 * .01 = 0.0005ms |
+
+13) Imagine que um arquivo de 10MB esteja armazenado em um disco na mesma trilha (trilha
+#:50) em setores consecutivos. O braço do disco está situado sobre a trilha de número 100.
+Quanto tempo é necessário para recuperar esse arquivo a partir do disco? Suponha que a
+transferência do braço de um cilindro a outro leve cerca de 1ms e cerca de 5ms para que o
+setor onde o início do arquivo está armazenado faça a rotação sob a cabeça. Além disso,
+suponha que a leitura ocorra a uma taxa de 100MB/s.
+busca: 50 cil
+transf. braço: 50cil * 1ms/cil = 50ms
+latencia: 5ms
+leitura: 10/100MB/s = 0.1s
+TOTAL: 50ms + 5ms + 0.1s = 155ms
+
+14) Como a computação interativa e a melhoria que causou no tempo de retorno aumentaram a
+produtividade do programador?
+Permitindo o feedback real-time do código, reduzindo o tempo de desenv. aumentando a produtividade pois o desenvolvedor pode rapidamente detectar error no projeto. 
+
+15) Como a tecnologia orientada a objeto afetou os sistemas operacionais?
+Levou sua modularidade a outro patamar, agora os códigos se tornam reutilizaveis e extensiveis, isso significa que a adição de novos recursos não necessita da refatoração de outras partes do código.
+
+16) Cite alguns dos benefícios do desenvolvimento de software livre.
+Proporciona a popularização da ferramenta, uma vez que qualquer um pode utiliza-la sem custo atrelado, além disso, qualquer um pode analisar o código fonte e encontrar bugs ou vulnerabilidades e corrigir por si mesmo, podendo até fazer um pull-request da melhoria/correção no projeto oficial.
+Outra importante característica é o aprendizado que vem ao participar do desenvolvimento de um software livre, é possível aprender com outros programadores ao redor do mundo que compartilham suas soluções, ideias e melhorias, podendo aprender novos conceitos com as multiplas abordagens vindas de diferentes pontos de vista.
+
+17) Quais tecnologias podem ser usadas para transpor a lacuna entre sistemas operacionais
+diferentes? Como essas tecnologias possibilitaram a execução da mesma aplicação em
+várias plataformas?
+Camadas de abstração, interpretadoes e compiladores. Essas tecnologias permitem que o mesmo código seja executado em diferentes Sistemas Operacionais e arquiteturas. (Outra abordagem menos eficiente são tradutores, eles são recomendados apenas para programas onde não é possível a recompilação para a arquitetura do hardware e software da maquina alvo, embora menos eficientes, podem ser a única solução disponível em alguns casos. Um exemplo ótimo é o sistema Windows On ARM, onde a microsoft desenvolve o mesmo sistema Windows x86 para a arquitetura ARM, os programas que não possuem binarios disponíveis para ARM são executados com uma camada de tradução do próprio windows, eu mesmo pude testar uma Imagem de Windows on ARM rodando em um Microsoft Surface Duo, um celular dobravel com duas telas da microsoft que originalmente rodava Android).
+
+18) Um monitor de temperatura em uma usina nuclear seria provavelmente descrito como que
+tipo de sistema? Por quê?
+Sistema real-time, pois precisa ter tempo de resposta virtualmente inexitente, além de prover integridade nos dados e ter seu comportamento previsível e preciso.
+
+19) Descreva as vantagens e desvantagens das máquinas virtuais.
+Maquinas virtuais tem a vantagem de rodar qualquer programa com qualquer sistema operacional isoladamente, isso significa que os processos são incapazes de acessar a máquina hospedeira, assim tendo alta segurança, além de proporcionar a execução de uma aplicação que não roda nativamente no SO hospedeiro. A desvantagem é o custo de manter tanto o SO hospedeiro e seus processos quanto o SO virtual com seus processos, assim tendo um custo de processamento muito mais alto do que rodar nativamente o SO em uma maquina real. 
+
+20) Em um ambiente de multiprogramação e tempo compartilhado, vários usuários
+compartilham o sistema simultaneamente. Essa situação pode resultar em diversos
+problemas de segurança.
+
+a. Cite dois desses problemas.
+Problemas de integridade de dados, quando um processo escreve/le a mesma informação ao mesmo tempo, podendo gerar comportamentos imprevisíveis. Além disso, pode ocorrer lentidão no sistema pois embora temos multiplos processos, ainda temos as limitações do hardware, como memoria ram, que quando atinge toda sua capacidade, precisa realizar uma auto-limpeza ou troca de dados com a memoria secundária.
+
+b. Podemos assegurar o mesmo nível de segurança tanto em uma máquina dedicada
+como em uma máquina de tempo compartilhado? Explique sua resposta.
+não, comportamentos maliciosos de outros processos podem causar instabilidade na maquina, além de ter tempo de resposta menor pois cada processo precisa receber sua parcela de tempo de processamento.
+
+21) Por que a separação entre mecanismo e política é desejável?
+Pois torna o sistema mais flexível e adaptável, o mecanismo é responsável por aplicar a política, assim, permitindo que a política seja alterada sem precisar de alterações no mecanismo.
+
+22) Qual é a finalidade dos programas de sistema?
+fornecem serviços para outros programas, como uma maleta de ferramentas, tornando outros programas capazes de interagir com o hardware ou outros programas.

@@ -1,0 +1,2 @@
+Façade agrupa simplificando subsistemas, provendo uma interface para um cliente, reduz as dependencias dos subsistemas aos clientes.
+Um adapter, como o proprio nome diz, adapta uma interface de modo que possa operar com outra interface que não foi originalmente feita para ser compatível.

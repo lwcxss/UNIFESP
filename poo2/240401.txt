@@ -1,0 +1,80 @@
+// Sistema de notificações para uma aplicação de lista de tarefas. (em C++)
+
+// arquivo Notificador.h //////////////////////////////////////////////////////////////////////
+#pragma once
+#include <string>
+#include <iostream>
+#include <fstream>
+
+// Single Responsability Principle: Interface Notificador define uma única responsabilidade - enviar notificações.
+class Notificador 
+{
+public:
+    virtual void enviarNotificacao(const std::string& mensagem) = 0;
+};
+
+// Open-Closed Principle: EmailNotificador, SMSNotificador, e AppNotificador são extensíveis sem modificar.
+class EmailNotificador : public Notificador 
+{
+public:
+    void enviarNotificacao(const std::string& mensagem) override {
+        std::cout << "Enviando e-mail: " << mensagem << std::endl;
+    }
+};
+
+class SMSNotificador : public Notificador 
+{
+public:
+    void enviarNotificacao(const std::string& mensagem) override {
+        std::cout << "Enviando SMS: " << mensagem << std::endl;
+    }
+};
+
+class AppNotificador : public Notificador 
+{
+public:
+    void enviarNotificacao(const std::string& mensagem) override {
+        std::cout << "Mostrando notificação no app: " << mensagem << std::endl;
+    }
+};
+
+// DIP: ListaDeTarefas depende de abstrações (Notificador), não de implementações concretas.
+class ListaDeTarefas 
+{
+    Notificador* notificador;
+public:
+    ListaDeTarefas(Notificador* notificador) : notificador(notificador) {}
+
+    void adicionarTarefa(const std::string& tarefa) {
+        // Adiciona a tarefa...
+        notificador->enviarNotificacao("Uma nova tarefa foi adicionada: " + tarefa);
+    }
+
+    void concluirTarefa(const std::string& tarefa) {
+        // Conclui a tarefa...
+        notificador->enviarNotificacao("A tarefa foi concluída: " + tarefa);
+    }
+};
+
+// Main.cpp ////////////////////////////////////////////////////////////////////////////////////
+int main() 
+{
+    EmailNotificador notificadorEmail;
+    SMSNotificador notificadorSMS;
+    AppNotificador notificadorApp;
+
+    // LSP: notificadorEmail, notificadorSMS, e notificadorApp podem ser substituídos por sua interface Notificador.
+    ListaDeTarefas lista(&notificadorEmail);
+    lista.adicionarTarefa("Comprar leite");
+    lista.concluirTarefa("Comprar leite");
+
+    ListaDeTarefas lista2(&notificadorSMS);
+    lista2.adicionarTarefa("Pagar as contas");
+    lista2.concluirTarefa("Pagar as contas");
+
+    ListaDeTarefas lista3(&notificadorApp);
+    lista3.adicionarTarefa("Ligar para o João");
+    lista3.concluirTarefa("Ligar para o João");
+
+    return 0;
+}
