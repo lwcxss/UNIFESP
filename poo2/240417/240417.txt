@@ -1,0 +1,37 @@
+5.1 e 5.2)
+
+public class Singleton {
+  private Singleton() {}
+  private static Singleton instance;
+  public static getSingleton()
+  {
+    if (this.instance == null) this.instance = new Singleton();
+    return this.instance;
+  }
+
+  public string registrar(string nome, int id) {
+    return "Cliente " + nome + "()" + id + ") registrado";
+  }
+
+  public string comprar(int prod, int cliente) {
+    return "Produto " + prod + " comprado por " + cliente;
+  }
+
+  public string fecharCompra(int cliente) {
+    return "Compra de " + cliente + " finalizada";
+  }
+} 
+
+public static void main(string[] args) {
+  Singleton f1 = Singleton.getSingleton();
+  Singleton f2 = Singleton.getSingleton();
+  Singleton f3 = Singleton.getSingleton();
+  if (f1 == f2 && f2 == f3) System.out.println("Mesmas instancias");
+}
+
+5.3)
+java.lang.Math --> Não é singleton, apesar de seu construtor ser privado, não possui uma instancia, apenas metodos estaticos. 
+java.lang.System --> Nao é Singleton, agrupa classes do sistema em que o codigo roda.
+PrinterManager --> Singleton, pois uma classe responsavel por gerenciar impressoras com multiplas instancias pode causar erros de concorrencia.
+PrintSpooler --> Nao Singleton, pois se refere a um carretel de impressora, podem haver multiplos carreteis.
+PrintStream --> Singleton, pois é o metodo de SAIDA.

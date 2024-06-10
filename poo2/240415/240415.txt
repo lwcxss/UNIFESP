@@ -1,0 +1,48 @@
+4.1)
+
+class Queue
+{
+  Queue(list: EstruturaLista);
+  dequeue(): Object;
+  enqueue(o: Object): void;
+  isEmpty(): boolean;
+  size(): int;
+}
+
+class FIFOQueue extends Queue
+{
+  FIFOQueue(list: EstruturaLista);
+  dequeue(): Object;
+  enqueue(o: Object): void;
+  ...
+}
+
+class LIFOQueue extends Queue
+{
+  LIFOQueue(list: EstruturaLista);
+  dequeue(): Object;
+  enqueue(o: Object): void;
+  ...
+}
+
+class EstruturaLista
+{
+  EstruturaLista();
+  dequeue(): Object;
+  enqueue(o: Object): void;
+  ...
+}
+
+class ArrayListQueue extends EstruturaLista
+{
+  dequeue(): Object;
+  enqueue(o: Object): void;
+  ...
+}
+
+class VectorQueue extends EstruturaLista
+{
+  dequeue(): Object;
+  enqueue(o: Object): void;
+  ...
+}

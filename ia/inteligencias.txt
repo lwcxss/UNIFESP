@@ -1,0 +1,44 @@
+Supervisionadas
+classificação
+regressao
+
+Não Supervisionadas
+-Agrupamento
+-Recuperação de Info
+-Regras de Associação
+
+--selecao atributos
+codificar a maior quantidade possivel de info
+os atrib devem ter redundancia minima entre eles, pelo menos um pouco.
+
+--medida de proximidade
+medida para quantificar SIMILARIDADE ou DISSIMILARIDADE, são dois vetores de atributos.
+normalizar os dados para o mesmo dominio. (recomendado p qualquer alg baseado em distancia)
+
+--criterio de agrupamento
+depende da interpretação do especialista em relação ao termo SENSIVEL com base no tipo de clusters esperados.
+o que caracteriza bons e maus criterios de cluster?
+criterios de OTIMALIDADE, muitas vezes subjetivo.
+OBS: 
+nenhum cluster pode ser VAZIO.
+a uniao de todos os cluster deve ser o conjunto total de amostras.
+a interseção de clusters não pode conter vetores em comum.
+relacao INTRA-CLUSTER deve ser maior que INTER-CLUSTER.
+MEDIDAS DISSIMILARIDADE:
+Ip Ponderada
+Norma Iinf Ponderada
+I2 ponderada (mahalanobis)
+Ip especial (manhatam)
+Dist de Hamming
+MEDIDAS SIMILARIDADE
+prod interno
+tanimoto
+
+--alg de agrupamento
+
+--ver resultados
+relativo, feito atravez de testes
+
+--interpretação dos resultados
+os resultados devem ser integrados com outras evidencias experimentais e analises para chegar a conclusoes.
+

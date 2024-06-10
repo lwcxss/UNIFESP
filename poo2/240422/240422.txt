@@ -1,0 +1,49 @@
+public interface Observer {
+  public void update(Observable o);
+}
+
+public class Observable {
+  Observer observers = new ArrayList();
+  public void add(Observer o) {
+    observers.add(o);
+  }
+  public void remove(Observer o) {
+    observers.remove(o);
+  }
+  public void notify() {
+    Iterator it = observers.iterator();
+    while(it.hasNext()) {
+      Observer o = (Observer)it.next();
+      o.update(this);
+    }
+  }
+}
+
+public class PCD extends Observable {
+  public void setData(Object data) {
+    private Object data;
+    this.data = data;
+    notify();
+  }
+  public Object getData() {
+    return data();
+  }
+}
+
+public class Instituicao implements Observer {
+  public void update(Observable o) {
+    ObservableData data = (ObservableData) o;
+    data.getData();
+    // mostrar no dashboard
+  }
+}
+
+public void main (String[] args) {
+  PCD temp, ph, pa;
+  Instituicao unifesp, ufscar;
+  temp.add(unifesp);
+  temp.add(ufscar);
+  ph.add(unifesp);
+  pa.add(unifesp);
+  temp.setData(11);
+}
